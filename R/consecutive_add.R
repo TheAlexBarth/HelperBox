@@ -38,7 +38,10 @@ consecutive_add <- function(data, threshold, use_index = F,
   for(i in 2:run_length){
     if(data[i] > threshold){
       run_count <- c(run_count,data[i])
-      next
+      if(i == run_length){
+        value[line_count] <- sum(run_count)
+        end_point[line_count] <- labs[i]
+      }
     } else {
       #end last line
       value[line_count] <- sum(run_count)
@@ -52,7 +55,8 @@ consecutive_add <- function(data, threshold, use_index = F,
       #prep for next line
       run_count <- 0
       if(i < run_length){
-        start_point[line_count+1] <- labs[i+1]
+        line_count = line_count+1
+        start_point[line_count] <- labs[i+1]
       }
     }
   }
