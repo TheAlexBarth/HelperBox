@@ -8,6 +8,7 @@
 #' @param index_value if use_index true, provide a value for labels
 #' @param threshold what value should the distinguishing be?
 #'
+#' @export
 consecutive_add <- function(data, threshold, use_index = F,
                        index_value = NULL){
 
