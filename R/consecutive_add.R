@@ -43,15 +43,27 @@ consecutive_add <- function(data, threshold, use_index = F,
         end_point[line_count] <- labs[i]
       }
     } else {
-      #end last line
-      value[line_count] <- sum(run_count)
-      end_point[line_count] <- labs[i-1]
+      #if it is currently running, finish last line
+      if(sum(run_count) > 0){
+        #end last line
+        value[line_count] <- sum(run_count)
+        end_point[line_count] <- labs[i-1]
+      } else { #else finish current line with 0\
+        if(sum(run_count) > 0){
+        stop("run_count is greater than 0 but loop is broken")
+        }
+        value[line_count] <- sum(run_count)
+        end_point[line_count] <- labs[i]
+      }
+
       #set up new line
       line_count <- line_count + 1
       start_point[line_count] <- labs[i]
+
       #end the line
       end_point[line_count] <- labs[i]
       value[line_count] <- 0
+
       #prep for next line
       run_count <- 0
       if(i < run_length){
