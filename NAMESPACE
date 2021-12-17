@@ -2,6 +2,8 @@
 
 export(add_range)
 export(consecutive_add)
+export(exit)
+export(exitText)
 export(in_range)
 export(read_multiple_csv)
 importFrom(utils,read.csv)
