@@ -12,7 +12,7 @@
 #' @importFrom utils read.csv
 #'
 #' @export
-read_multiple_csv <- function(index, header = TRUE, as.is = TRUE){
+read_multiple_csv <- function(path,index, header = TRUE, as.is = TRUE){
 
   #initialize holder list
   list_file <- vector(mode = "list", length = length(index))

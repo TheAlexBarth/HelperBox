@@ -4,9 +4,11 @@
 \alias{read_multiple_csv}
 \title{read_multiple_csv - read multiple csv files}
 \usage{
-read_multiple_csv(index, header = TRUE, as.is = TRUE)
+read_multiple_csv(path, index, header = TRUE, as.is = TRUE)
 }
 \arguments{
+\item{path}{the folder you want to pull from}
+
 \item{index}{the index of all csv files in the working directory}
 
 \item{header}{to talk to read.csv, default true}
